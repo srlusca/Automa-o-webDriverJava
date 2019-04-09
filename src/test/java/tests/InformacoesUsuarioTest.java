@@ -81,7 +81,7 @@ public class InformacoesUsuarioTest {
         assertEquals(mensagemEsperada, mensagem);
     }
 
-    @Test
+    //@Test
     public void removerContatoDeUmUsuario() {
         // Clicar no elemento pelo seu xpath //span[text()="+5511944000044"]/following-sibling::a
         navegador.findElement(By.xpath("//span[text()=\"+5511944000044\"]/following-sibling::a")).click();
