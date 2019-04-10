@@ -52,11 +52,14 @@ public class InformacoesUsuarioPageObjectsTest {
         ) {
             new LoginPage(navegador)
                     .clicarRegistrarSe()
-                    .registrarUmNovoUsuario(regName, regLogin, regSenha);
-        }
+                    .registrarUmNovoUsuario(regName, regLogin, regSenha)
+                    .validarMyName(regName)
+                    .fazerLogout();
+
+    }
 
     @After
     public void tearDown() {
-        //navegador.quit();
+        navegador.quit();
     }
 }
