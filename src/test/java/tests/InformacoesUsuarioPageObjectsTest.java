@@ -24,7 +24,7 @@ public class InformacoesUsuarioPageObjectsTest {
         navegador = Web.createChrome();
     }
 
-    @Test
+    //@Test
     public void testAdicionarUmaInformacaoAdicionalDoUsuario(
             @Param(name = "login") String login,
             @Param(name = "senha") String senha,
@@ -44,8 +44,19 @@ public class InformacoesUsuarioPageObjectsTest {
         assertEquals(mensagemEsperada, textoToast);
     }
 
+    @Test
+        public void testRegistrarUsuario(
+                @Param(name = "regName") String regName,
+                @Param(name = "regLogin") String regLogin,
+                @Param(name = "regSenha") String regSenha
+        ) {
+            new LoginPage(navegador)
+                    .clicarRegistrarSe()
+                    .registrarUmNovoUsuario(regName, regLogin, regSenha);
+        }
+
     @After
     public void tearDown() {
-        navegador.quit();
+        //navegador.quit();
     }
 }
