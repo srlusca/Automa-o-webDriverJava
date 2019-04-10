@@ -2,6 +2,7 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public class LoginPage extends BasePage {
     public LoginPage(WebDriver navegador) {
@@ -14,4 +15,12 @@ public class LoginPage extends BasePage {
 
         return new LoginFormPage(navegador);
     }
+
+    public RegisterLoginPage clicarRegistrarSe() {
+        // Clicar no elemento que possui o id "signup"
+        navegador.findElement(By.id("signup")).click();
+
+        return new RegisterLoginPage(navegador);
+    }
+
 }

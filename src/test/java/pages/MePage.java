@@ -2,6 +2,9 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+import static org.junit.Assert.assertEquals;
 
 public class MePage extends BasePage {
 
@@ -21,5 +24,21 @@ public class MePage extends BasePage {
         navegador.findElement(By.xpath("//div[@id=\"moredata\"]/div/button[@data-target=\"addmoredata\"]")).click();
 
         return new AddContactPage(navegador);
+    }
+
+    public MePage validarMyName(String regName) {
+        // Validar que meu fiz o registro no campo class "me"
+        WebElement myName = navegador.findElement(By.className("me"));
+        String myMe = myName.getText();
+        assertEquals("Informação de Usuário inválida", "Hi, " + regName, myMe);
+
+        return this;
+    }
+
+    public LoginPage fazerLogout() {
+        // Efetuar logout atráves do text logout
+        navegador.findElement(By.linkText("Logout")).click();
+
+        return new LoginPage(navegador);
     }
 }
