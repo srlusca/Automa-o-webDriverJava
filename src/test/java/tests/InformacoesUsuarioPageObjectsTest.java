@@ -44,7 +44,7 @@ public class InformacoesUsuarioPageObjectsTest {
         assertEquals(mensagemEsperada, textoToast);
     }
 
-    @Test
+    //@Test
         public void testRegistrarUsuario(
                 @Param(name = "regName") String regName,
                 @Param(name = "regLogin") String regLogin,
@@ -55,10 +55,27 @@ public class InformacoesUsuarioPageObjectsTest {
                     .registrarUmNovoUsuario(regName, regLogin, regSenha)
                     .validarMyName(regName)
                     .fazerLogout();
-
     }
 
-    @After
+    @Test
+        public void adicionarTarefa(
+                @Param(name = "login") String login,
+                @Param(name = "senha") String senha,
+                @Param(name = "titulo") String titulo,
+                @Param(name = "dataLimite") String dataLimite,
+                @Param(name = "horaLimite") String horaLimite,
+                @Param(name = "minutoLimite") String minutoLimite,
+                @Param(name = "comentario") String comentario
+    ) {
+        new LoginPage(navegador)
+                .clicarSignIn()
+                .fazerLogin(login, senha)
+                .clicarAddSomeTasks()
+                .preencherUmaNovaTarefa(titulo, dataLimite, horaLimite, minutoLimite, comentario)
+                .validarTarefaInserida();
+    }
+
+    //@After
     public void tearDown() {
         navegador.quit();
     }
