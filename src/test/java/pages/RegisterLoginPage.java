@@ -2,14 +2,21 @@ package pages;
 
 import static org.junit.Assert.*;
 
+import org.junit.Rule;
+import org.junit.rules.TestName;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import support.Generator;
+import support.Screenshots;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class RegisterLoginPage extends BasePage {
+    @Rule
+    public TestName test = new TestName();
+
     public RegisterLoginPage(WebDriver navegador) {
         super(navegador);
     }
@@ -43,6 +50,8 @@ public class RegisterLoginPage extends BasePage {
             List<WebElement> mensagemErro = navegador.findElements(By.xpath("//*[@id=\"toast-container\"]/div"));
             if (mensagemErro.size() > 0) {
                 System.out.println(mensagemErro.get(0).getText());
+                String screenShotArquivo = "src/main/resources/evidencias/" + Generator.dataHoraParaArquivo() + ".png";
+                Screenshots.tirar(navegador, screenShotArquivo);
                 fail();
             }
         }

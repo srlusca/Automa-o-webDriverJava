@@ -1,3 +1,8 @@
 testAdicionarUmaInformacaoAdicionalDoUsuario,login,senha,tipo,contato,mensagem
-                                            ,Julio0001,123456,Phone,+5511988887777,Your contact has been added!
-                                            ,Julio0001,123456,E-mail,email@email1.com,Your contact has been added!
+                                            ,TesteGui1,123456,Phone,+5511940311720,Your contact has been added!
+
+testRegistrarUsuario,regName,regLogin,regSenha,login,senha
+                    ,Guilherme,TesteGui1,123456,Guilherme,
+
+adicionarTarefa,login,senha,titulo,dataLimite,horaLimite,minutoLimite,comentario
+               ,srlusca,123456,Monstro,"20 April, 2019",18,00,Proxima Aula.

@@ -16,4 +16,10 @@ public class SecretaPage extends BasePage {
         return new MePage(navegador);
     }
 
+    public AddSomeTaskPage clicarAddSomeTasks() {
+        // Clicar no texto "Let's add some tasks!"
+        navegador.findElement(By.linkText("LET'S ADD SOME TASKS!")).click();
+
+        return new AddSomeTaskPage(navegador);
+    }
 }
